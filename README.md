@@ -74,6 +74,11 @@ LIMIT 10;
 | Mercedes-Benz S-Class (S 500)                                                                                                      | 85000.00    | 
 | Mercedes-Benz SL (SL 350)                                                                                                          | 72000.00    | 
 
+Conclusion: 
+Wind turbines (especially large-scale models) have the highest carbon footprint, likely due to manufacturing and material processing.
+Automobiles and heavy infrastructure (e.g., retaining walls) also contribute significantly.
+
+
 ### 2. What are the industry groups of these products?
 ```sql
 SELECT product_emissions.product_name, industry_groups.industry_group, ROUND(AVG(product_emissions.carbon_footprint_pcf),2) AS average_PCF
@@ -113,6 +118,11 @@ LIMIT 5;
 | Capital Goods                                    | 7391.77     | 
 | Materials                                        | 3208.86     | 
 
+Conclusion:
+Electrical Equipment and Machinery leads in emissions, primarily due to large-scale industrial production.
+Automobiles & Components follow, showing how transportation remains a major emitter.
+
+
 ### 4. What are the companies with the highest contribution to carbon emissions?
 ```sql
 SELECT companies.company_name, SUM(product_emissions.carbon_footprint_pcf) AS total_PCF
@@ -129,6 +139,12 @@ LIMIT 5;
 | Volkswagen AG                           | 655960    | 
 | "Mitsubishi Gas Chemical Company, Inc." | 212016    | 
 | "Hino Motors, Ltd."                     | 191687    | 
+
+Conclusion:
+Gamesa Corporación Tecnológica, S.A. (a major wind turbine manufacturer) has the highest emissions.
+Daimler AG and Volkswagen AG highlight the impact of the automotive sector.
+
+
 
 ### 5. What are the countries with the highest contribution to carbon emissions?
 ```sql
@@ -147,6 +163,11 @@ LIMIT 5;
 | USA          | 518381    | 
 | South Korea  | 186965    | 
 
+Conclusion:
+Spain leads, likely due to large-scale renewable energy projects.
+Germany and Japan are significant contributors, given their industrial sectors.
+
+
 ### 6. What is the trend of carbon footprints (PCFs) over the years?
 ```sql
 SELECT year, SUM(carbon_footprint_pcf) AS total_PCF
@@ -161,6 +182,10 @@ ORDER BY year;
 | 2015 | 10840415  | 
 | 2016 | 1640182   | 
 | 2017 | 340271    | 
+
+Conclusion:
+A sharp spike in 2015 (due to electrical machinery and automobiles) followed by a decline.
+
 
 ### 7. Which industry groups has demonstrated the most notable decrease in carbon footprints (PCFs) over time?
 ```sql
@@ -212,3 +237,6 @@ ORDER BY
 | Tobacco                                                                | 0.00          | 0.00          | 1.00          | 0.00          | 0.00          | 
 | Trading Companies & Distributors and Commercial Services & Supplies    | 0.00          | 0.00          | 39.83         | 0.00          | 0.00          | 
 | Utilities                                                              | 30.50         | 0.00          | 0.00          | 30.50         | 0.00          | 
+
+Conclusion:
+Some industries show a downward trend, possibly due to regulatory changes or improved efficiency.
