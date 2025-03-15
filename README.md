@@ -53,7 +53,7 @@ Select * from countries limit 5;
 | 5  | Chile        | 
 
 ## 2. Carbon Emission Data Analysis
-### Which products contribute the most to carbon emissions?
+### 1. Which products contribute the most to carbon emissions?
 ```sql
 SELECT product_name, ROUND(AVG(carbon_footprint_pcf),2) AS 'Average PCF'
 FROM product_emissions
@@ -74,7 +74,7 @@ LIMIT 10;
 | Mercedes-Benz S-Class (S 500)                                                                                                      | 85000.00    | 
 | Mercedes-Benz SL (SL 350)                                                                                                          | 72000.00    | 
 
-### What are the industry groups of these products?
+### 2. What are the industry groups of these products?
 ```sql
 SELECT product_emissions.product_name, industry_groups.industry_group, ROUND(AVG(product_emissions.carbon_footprint_pcf),2) AS average_PCF
 FROM product_emissions
@@ -96,7 +96,7 @@ LIMIT 10;
 | Mercedes-Benz S-Class (S 500)                                                                                                      | Automobiles & Components           | 85000.00    | 
 | Mercedes-Benz SL (SL 350)                                                                                                          | Automobiles & Components           | 72000.00    | 
 
-### What are the industries with the highest contribution to carbon emissions?
+### 3. What are the industries with the highest contribution to carbon emissions?
 ```sql
 SELECT industry_groups.industry_group, ROUND(AVG(product_emissions.carbon_footprint_pcf),2) AS average_PCF
 FROM product_emissions
@@ -113,7 +113,7 @@ LIMIT 5;
 | Capital Goods                                    | 7391.77     | 
 | Materials                                        | 3208.86     | 
 
-### What are the companies with the highest contribution to carbon emissions?
+### 4. What are the companies with the highest contribution to carbon emissions?
 ```sql
 SELECT companies.company_name, SUM(product_emissions.carbon_footprint_pcf) AS total_PCF
 FROM product_emissions
@@ -130,7 +130,7 @@ LIMIT 5;
 | "Mitsubishi Gas Chemical Company, Inc." | 212016    | 
 | "Hino Motors, Ltd."                     | 191687    | 
 
-### What are the countries with the highest contribution to carbon emissions?
+### 5. What are the countries with the highest contribution to carbon emissions?
 ```sql
 SELECT countries.country_name, SUM(product_emissions.carbon_footprint_pcf) AS total_PCF
 FROM product_emissions
@@ -147,7 +147,7 @@ LIMIT 5;
 | USA          | 518381    | 
 | South Korea  | 186965    | 
 
-### What is the trend of carbon footprints (PCFs) over the years?
+### 6. What is the trend of carbon footprints (PCFs) over the years?
 ```sql
 SELECT year, SUM(carbon_footprint_pcf) AS total_PCF
 FROM product_emissions
@@ -162,7 +162,7 @@ ORDER BY year;
 | 2016 | 1640182   | 
 | 2017 | 340271    | 
 
-### Which industry groups has demonstrated the most notable decrease in carbon footprints (PCFs) over time?
+### 7. Which industry groups has demonstrated the most notable decrease in carbon footprints (PCFs) over time?
 ```sql
 SELECT
 	industry_groups.industry_group AS 'Industry Group',
